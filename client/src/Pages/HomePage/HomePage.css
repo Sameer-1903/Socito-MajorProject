@@ -1,0 +1,39 @@
+.home-page-container{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.left-section{
+    width: 20%;
+    /* border: 2px solid green; */
+    
+    
+
+}
+.middle-section{
+
+    width: 40%;
+    /* border: 2px solid rgb(139, 32, 98); */
+}
+.right-section{
+    width: 20%;
+    /* border: 2px solid yellow; */
+
+}
+
+@media only screen and (max-width: 768px) {
+    .home-page-container{
+        border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .left-section,
+    .middle-section,
+    .right-section {
+        width: 100%; /* Make sections take up full width */
+    }
+}
