@@ -1,0 +1,27 @@
+{
+    "name": "your-mern-project",
+    "version": "1.0.0",
+    "description": "Your MERN Project Description",
+    "main": "server.js",
+    "scripts": {
+      "start": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "nodemon server/index.js",
+      "client": "cd client && npm start",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["mern", "mongodb", "express", "react", "node"],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+      "concurrently": "^7.0.0"
+    },
+    "devDependencies": {},
+    "engines": {
+      "node": ">=12.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/your-username/your-mern-project.git"
+    }
+  }
+  
