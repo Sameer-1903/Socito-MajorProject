@@ -56,3 +56,170 @@ const SocketServer = (socket) => {
 
     users = users.filter((user) => user.socketId !== socket.id);
   });
+  // Likes
+  socket.on("likePost", (newPost) => {
+    const ids = [...newPost.user.followers, newPost.user._id];
+    const clients = users.filter((user) => ids.includes(user.id));
+
+    if (clients.length > 0) {
+      clients.forEach((client) => {
+        socket.to(`${client.socketId}`).emit("likePostToClient", newPost);
+      });
+    }
+  });
+  // UnLikes
+  socket.on("unLikePost", (newPost) => {
+    const ids = [...newPost.user.followers, newPost.user._id];
+    const clients = users.filter((user) => ids.includes(user.id));
+
+    if (clients.length > 0) {
+      clients.forEach((client) => {
+        socket.to(`${client.socketId}`).emit("unLikePostToClient", newPost);
+      });
+    }
+  });
+
+  // Update Post
+  socket.on("updatePost", (newPost) => {
+    const ids = [...newPost.user.followers, newPost.user._id];
+    const clients = users.filter((user) => ids.includes(user.id));
+
+    if (clients.length > 0) {
+      clients.forEach((client) => {
+        socket.to(`${client.socketId}`).emit("updatePostToClient", newPost);
+      });
+    }
+  });
+
+  // Create Comment
+  socket.on("createComment", (newComment) => {
+    const ids = [
+      ...newComment.user.followers,
+      ...newComment.user.following,
+      newComment.user._id,
+    ];
+    const clients = users.filter((user) => ids.includes(user.id));
+
+    if (clients.length > 0) {
+      clients.forEach((client) => {
+        socket
+          .to(`${client.socketId}`)
+          .emit("createCommentToClient", newComment);
+      });
+    }
+  });
+  // Delete Comment
+  socket.on("deleteComment", (newComment) => {
+    const ids = [
+      ...newComment.user.followers,
+      ...newComment.user.following,
+      ,
+      newComment.user._id,
+    ];
+    const clients = users.filter((user) => ids.includes(user.id));
+
+    if (clients.length > 0) {
+      clients.forEach((client) => {
+        socket
+          .to(`${client.socketId}`)
+          .emit("deleteCommentToClient", newComment);
+      });
+    }
+  });
+  // Follow
+  socket.on("followUser", (data) => {
+    const user = users.find((user) => user.id === data.to);
+    delete data.to;
+
+    user && socket.to(`${user.socketId}`).emit("followUserToClient", data);
+  });
+  // UnFollow
+  socket.on("unFollowUser", (data) => {
+    const user = users.find((user) => user.id === data.to);
+    delete data.to;
+    user && socket.to(`${user.socketId}`).emit("unFollowUserToClient", data);
+  });
+  // create a Notify
+  socket.on("createNotify", (notify) => {
+    const client = users.find((user) => notify.recipients.includes(user.id));
+    client &&
+      socket.to(`${client.socketId}`).emit("createNotifyToClient", notify);
+  });
+  // delete a Notify
+  socket.on("deleteNotify", (notify) => {
+    if (notify && notify.recipients) {
+      const client = users.find((user) => notify.recipients.includes(user.id));
+      client &&
+        socket.to(`${client.socketId}`).emit("deleteNotifyToClient", notify);
+    }
+  });
+  // Create a Message
+  socket.on("createMessage", (msg) => {
+    const user = users.find((user) => user.id === msg.recipient._id);
+
+    user && socket.to(`${user.socketId}`).emit("createMessageToClient", msg);
+  });
+  // Delete a Message
+  socket.on("deleteMessage", (msg) => {
+    const user = users.find((user) => user.id === msg.recipient);
+    user && socket.to(`${user.socketId}`).emit("deleteMessageToClient", msg);
+  });
+  // delete a Conversation
+  socket.on("deleteConversation", (data) => {
+    const dataUser = data.data.recipients.find((obj) => obj !== data.auth);
+    const user = users.find((user) => user.id === dataUser);
+
+    user &&
+      socket
+        .to(`${user.socketId}`)
+        .emit("deleteConversationToClient", data.data);
+  });
+
+  // Online/Offline
+  socket.on("checkUserOnline", (id) => {
+    if (id) {
+      const checkUserOnline = users.filter((user) =>
+        user.online.filter((item) => item === user.id)
+      );
+
+      const userOnline = checkUserOnline.filter((obj) => obj !== id);
+
+      if (userOnline.length > 0) {
+        userOnline.forEach((client) => {
+          socket.to(`${client.socketId}`).emit("checkUserOnlineToClient", id);
+        });
+        socket.emit("checkUserOnlineToMe", userOnline);
+      }
+    }
+  });
+  // callUser
+  socket.on("callUser", (data) => {
+    users = EditData(users, data.sender._id, data.recipient._id);
+    users = EditData(users, data.recipient._id, data.sender._id);
+
+    const client = users.find((user) => user.id === data.recipient._id);
+
+    if (client) {
+      if (client.caller !== data.sender._id) {
+        socket.emit("userBusy", data);
+        users = EditData1(users, data.sender);
+      } else {
+        users = EditData(users, data.recipient, data.sender);
+        socket.to(`${client.socketId}`).emit("callUserToClient", data);
+      }
+    }
+  });
+
+  // End Call
+  socket.on("endCall", (data) => {
+    const client = users.find((user) => user.id === data.recipient._id);
+
+    if (client) {
+      socket.to(`${client.socketId}`).emit("endCallToClient", data);
+      users = EditData1(users, data.recipient._id);
+      users = EditData1(users, data.sender._id);
+    }
+  });
+};
+
+module.exports = SocketServer;
