@@ -18,3 +18,49 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 const SocketServer = require("./socketServer");
 const { ExpressPeerServer } = require("peer");
+
+const result = dotenv.config({
+    path: path.join(__dirname, "..", ".env.production"),
+  });
+  process.env = {
+    ...process.env,
+    ...result.parsed,
+  };
+  
+  const PORT = process.env.PORT || 4000;
+  
+  const httpServer = createServer(app);
+  const io = new Server(httpServer, {
+    cors: { origin: process.env.URL_FRONTEND },
+  });
+  
+  dbConnect();
+  app.use(morgan("dev"));
+  
+  const corsOptions = {
+    origin: process.env.URL_FRONTEND,
+    credentials: true,
+    optionSuccessStatus: 200,
+  };
+  app.use(cors(corsOptions));
+  app.use(bodyParser.json({ limit: "50mb" }));
+  app.use(
+    bodyParser.urlencoded({
+      limit: "50mb",
+      extended: false,
+    })
+  );
+  app.use(cookieParser());
+  
+  // Socket
+  io.on("connection", (socket) => {
+    SocketServer(socket);
+  });
+  
+  // Create peer Server
+  ExpressPeerServer(httpServer, { path: "/" });
+
+  httpServer.listen(PORT, () => {
+    console.log(`Server is running at PORT ${PORT}`);
+  });
+  
