@@ -9,14 +9,13 @@ import notificationReducer from "./features/notificationSlice";
 import conversationReducer from "./features/conversationSlice";
 import messagesReducer from "./features/messagesSlice";
 import OnlineReducer from "./features/onlineSlice";
-import CallReducer from "./features/callSlice";
+// import CallReducer from "./features/callSlice";
 
 import uploadImgReducer from "./features/uploadImgSlice";
 
 import GlobalStateSlice from "./features/GlobalStateSlice";
 import SocketSlice from "./features/socketSlice";
 import PeerSlice from "./features/peerSlice";
-import infoFaceBookSlice from "./features/infoFacebookSlice";
 
 export const store = configureStore({
   reducer: {
@@ -30,9 +29,6 @@ export const store = configureStore({
     conversation: conversationReducer,
     messages: messagesReducer,
     online: OnlineReducer,
-    call: CallReducer,
-    infoFaceBook: infoFaceBookSlice,
-
     socket: SocketSlice,
     peer: PeerSlice,
     globalState: GlobalStateSlice,
