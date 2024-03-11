@@ -9,37 +9,22 @@ import {
 import { AppDispatch, RootState } from "../../redux/store";
 import PostsProfileSkeleton from "../skeleton/PostsProfileSkeleton";
 
-<<<<<<< HEAD
-const PostsProfile = () => {
-=======
 const SavedPostsProfile = () => {
->>>>>>> SM-5-post-details-page
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { post } = useSelector((state: RootState) => state);
   const { message } = post;
   const dispatch: AppDispatch = useDispatch();
-<<<<<<< HEAD
-  useEffect(() => {
-    if (message === "post/get-user-post success") {
-      setIsLoading(false);
-    }
-  }, [message]);
-=======
->>>>>>> SM-5-post-details-page
 
   const handlePostModal = (id: string) => {
     dispatch(setIsPostGlobalState());
     dispatch(setPostModalId(id));
   };
-<<<<<<< HEAD
-=======
   useEffect(() => {
     if (message === "post/get-saved-posts success") {
       setIsLoading(false);
     }
   }, [message]);
->>>>>>> SM-5-post-details-page
   return (
     <div className="posts-list-container">
       {isLoading ? (
@@ -81,8 +66,4 @@ const SavedPostsProfile = () => {
   );
 };
 
-<<<<<<< HEAD
-export default PostsProfile;
-=======
 export default SavedPostsProfile;
->>>>>>> SM-5-post-details-page
