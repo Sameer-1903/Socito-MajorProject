@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .main-layout-container {
     width: 100%;
     
@@ -9,3 +10,15 @@
     }
   }
   
+=======
+.main-layout-container {
+  width: 100%;
+  
+}
+@media (max-width: 450px) {
+  .main-layout-container {
+    position: relative;
+    flex-direction: column;
+  }
+}
+>>>>>>> SM-5-post-details-page

@@ -43,7 +43,11 @@ const EditProfile: React.FC<EditProfileProps> = ({ setOnEdit }) => {
   const navigate = useNavigate();
   const [avatar, setAvatar] = useState(
     auth.user?.avatar ||
+<<<<<<< HEAD
       "https://res.cloudinary.com/tuananh-pham/image/upload/v1678058561/MERN-Instagram-typescript/avatar/avatar-default_xkj2pq.jpg"
+=======
+      "https://res.cloudinary.com/dt36g5k7q/image/upload/v1709480063/Socito-MajorProject/avatar/k1pqpu67a2qgevrmfnwl.png"
+>>>>>>> SM-5-post-details-page
   );
 
   const dispatch: AppDispatch = useDispatch();
@@ -204,7 +208,11 @@ const EditProfile: React.FC<EditProfileProps> = ({ setOnEdit }) => {
           />
         </div>
 
+<<<<<<< HEAD
         <div className="form-group my-3">
+=======
+        {/* <div className="form-group my-3">
+>>>>>>> SM-5-post-details-page
           <label htmlFor="address">Address</label>
           <input
             type="text"
@@ -213,9 +221,15 @@ const EditProfile: React.FC<EditProfileProps> = ({ setOnEdit }) => {
             onChange={formik.handleChange("address")}
             value={formik.values.address}
           />
+<<<<<<< HEAD
         </div>
 
         <div className="form-group my-3">
+=======
+        </div> */}
+
+        {/* <div className="form-group my-3">
+>>>>>>> SM-5-post-details-page
           <label htmlFor="website">Website</label>
           <input
             type="text"
@@ -224,10 +238,17 @@ const EditProfile: React.FC<EditProfileProps> = ({ setOnEdit }) => {
             onChange={formik.handleChange("website")}
             value={formik.values.website}
           />
+<<<<<<< HEAD
         </div>
 
         <div className="form-group my-3">
           <label htmlFor="story">Story</label>
+=======
+        </div> */}
+
+        <div className="form-group my-3">
+          <label htmlFor="story">Bio</label>
+>>>>>>> SM-5-post-details-page
           <textarea
             name="story"
             cols={30}

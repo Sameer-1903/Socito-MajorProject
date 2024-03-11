@@ -262,9 +262,15 @@ const CreatePost: React.FC = () => {
                       borderRight: "1px solid #dbdbdb",
                     }}
                   >
+<<<<<<< HEAD
                     <UploadImg />
 
                     {stream && (
+=======
+                    {/* <UploadImg /> */}
+
+                    {/* {stream && (
+>>>>>>> SM-5-post-details-page
                       <div className="stream position-relative">
                         <span>
                           <button
@@ -284,8 +290,13 @@ const CreatePost: React.FC = () => {
 
                         <canvas ref={refCanvas} style={{ display: "none" }} />
                       </div>
+<<<<<<< HEAD
                     )}
                     <div className="input_images">
+=======
+                    )} */}
+                    {/* <div className="input_images">
+>>>>>>> SM-5-post-details-page
                       {stream ? (
                         <div style={{ position: "relative" }}>
                           <span className="number-img-stream">
@@ -313,14 +324,22 @@ const CreatePost: React.FC = () => {
                           />
                         </div>
                       )}
+<<<<<<< HEAD
                     </div>
+=======
+                    </div> */}
+>>>>>>> SM-5-post-details-page
                     <p
                       className="mt-3"
                       style={{
                         color: "#8e8e8e",
                       }}
                     >
+<<<<<<< HEAD
                       Or
+=======
+                    
+>>>>>>> SM-5-post-details-page
                     </p>
                     <p
                       role="button"

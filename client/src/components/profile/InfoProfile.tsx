@@ -22,6 +22,19 @@ const InfoProfile: React.FC<IInfoProfile> = ({ username }) => {
   const { user } = useSelector((state: RootState) => state);
   const { message } = user;
 
+<<<<<<< HEAD
+=======
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   if (
+  //     message === "user/get-a-user success" ||
+  //     auth.user!.username === username
+  //   ) {
+  //     setIsLoading(false);
+  //   }
+  // }, [auth.user, message, username]);
+
+>>>>>>> SM-5-post-details-page
   const dispatch: AppDispatch = useDispatch();
 
   const verifierUsername = username === auth.user!.username ? true : false;

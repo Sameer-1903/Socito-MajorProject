@@ -3,7 +3,11 @@
   "name": "Create React App Sample",
   "icons": [
     {
+<<<<<<< HEAD
       "src": "favicon.ico",
+=======
+      "src": "../src/images/socito-logo.png",
+>>>>>>> SM-5-post-details-page
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },

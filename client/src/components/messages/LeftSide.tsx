@@ -77,14 +77,22 @@ const LeftSide: React.FC = () => {
                   >
                     <div className="leftside-boxchat-avatar">
                       <img src={user.avatar} alt={user.avatar} />
+<<<<<<< HEAD
                       {online.data!.find((obj) => obj === user._id) ? (
+=======
+                      {/* {online.data!.find((obj) => obj === user._id) ? (
+>>>>>>> SM-5-post-details-page
                         <div
                           className="leftside-boxchat-online-icon"
                           key={user._id}
                         >
                           <RxDotFilled />
                         </div>
+<<<<<<< HEAD
                       ) : null}
+=======
+                      ) : null} */}
+>>>>>>> SM-5-post-details-page
                     </div>
 
                     {obj.isRead === false &&
@@ -128,14 +136,22 @@ const LeftSide: React.FC = () => {
                             className="leftside-boxchat-online"
                             key={user._id}
                           >
+<<<<<<< HEAD
                             Active now
+=======
+                            {/* Active now */}
+>>>>>>> SM-5-post-details-page
                           </div>
                         ) : (
                           <div
                             className="leftside-boxchat-online"
                             key={user._id}
                           >
+<<<<<<< HEAD
                             Offline
+=======
+                            {/* Offline */}
+>>>>>>> SM-5-post-details-page
                           </div>
                         )}
                       </div>

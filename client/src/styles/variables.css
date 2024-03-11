@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #root {
     --primary-bg: #fafafa;
     --secondary-bg: #ffffff;
@@ -8,3 +9,14 @@
     
   }
   
+=======
+#root {
+  --primary-bg: #fafafa;
+  --secondary-bg: #ffffff;
+  --border-color: #dbdbdb;
+  --primary-btn-bg: #0095f6;
+  --primary-text: #262626;
+  --secondary-text: #8e8e8e;
+  
+}
+>>>>>>> SM-5-post-details-page

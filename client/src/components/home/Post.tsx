@@ -52,14 +52,21 @@ const Post: React.FC<PostProps> = ({ post }) => {
   const [like, setLike] = useState<boolean>(false);
   const [likeCmt, setLikeCmt] = useState<boolean>(false);
   const [savedPost, setSavedPost] = useState<boolean>(false);
+<<<<<<< HEAD
 
+=======
+>>>>>>> SM-5-post-details-page
   const [postId, setPostId] = useState<string>(post._id);
 
   const { auth } = useSelector((state: RootState) => state);
   const { socket } = useSelector((state: RootState) => state);
+<<<<<<< HEAD
 
   const { user } = useSelector((state: RootState) => state);
 
+=======
+  const { user } = useSelector((state: RootState) => state);
+>>>>>>> SM-5-post-details-page
   const { comment } = useSelector((state: RootState) => state);
 
   const dispatch: AppDispatch = useDispatch();
@@ -203,12 +210,21 @@ const Post: React.FC<PostProps> = ({ post }) => {
     const id = post.user._id;
     dispatch(follow(id)).then((response) => {
       socket.data!.emit("followUser", {
+<<<<<<< HEAD
         _id: response.payload._id,
         username: response.payload.username,
         fullname: response.payload.fullname,
         avatar: response.payload.avatar,
         followers: response.payload.followers,
         following: response.payload.following,
+=======
+        _id: response.payload?._id,
+        username: response.payload?.username,
+        fullname: response.payload?.fullname,
+        avatar: response.payload?.avatar,
+        followers: response.payload?.followers,
+        following: response.payload?.following,
+>>>>>>> SM-5-post-details-page
         to: id,
       });
     });
@@ -230,12 +246,21 @@ const Post: React.FC<PostProps> = ({ post }) => {
     const id = post.user._id;
     dispatch(unFollow(id)).then((response) => {
       socket.data!.emit("unFollowUser", {
+<<<<<<< HEAD
         _id: response.payload._id,
         username: response.payload.username,
         fullname: response.payload.fullname,
         avatar: response.payload.avatar,
         followers: response.payload.followers,
         following: response.payload.following,
+=======
+        _id: response.payload?._id,
+        username: response.payload?.username,
+        fullname: response.payload?.fullname,
+        avatar: response.payload?.avatar,
+        followers: response.payload?.followers,
+        following: response.payload?.following,
+>>>>>>> SM-5-post-details-page
         to: id,
       });
     });
@@ -246,12 +271,21 @@ const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <div className="mb-4" style={{ borderBottom: "1px solid #dbdbdb" }}>
       <div className="d-flex mb-3 position-relative">
+<<<<<<< HEAD
         <Link to={`/${post.user.username}`} className="d-flex">
           <div className="user-image-wrapper absolute-center home-post-avatar">
             <img src={post.user.avatar} alt={post.user.username} />
           </div>
           <span className="home-post-text post-modal-username absolute-center ms-3">
             {post.user.username}
+=======
+        <Link to={`/${post.user?.username}`} className="d-flex">
+          <div className="user-image-wrapper absolute-center home-post-avatar">
+            <img src={post.user?.avatar} alt={post.user?.username} />
+          </div>
+          <span className="home-post-text post-modal-username absolute-center ms-3">
+            {post.user?.username}
+>>>>>>> SM-5-post-details-page
           </span>
         </Link>
         <div className="d-flex absolute-center">
@@ -273,7 +307,11 @@ const Post: React.FC<PostProps> = ({ post }) => {
           </span>
 
           <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">
+<<<<<<< HEAD
             {post.user.username === auth.user!.username ? (
+=======
+            {post.user?.username === auth.user!.username ? (
+>>>>>>> SM-5-post-details-page
               <>
                 <li>
                   <div
@@ -299,7 +337,11 @@ const Post: React.FC<PostProps> = ({ post }) => {
             ) : (
               <>
                 {auth.user!.following.find(
+<<<<<<< HEAD
                   (obj) => obj._id === post.user._id
+=======
+                  (obj) => obj._id === post.user?._id
+>>>>>>> SM-5-post-details-page
                 ) ? (
                   <li>
                     <div
@@ -378,8 +420,13 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className="mt-3 home-post-text">{post.likes.length} likes</div>
 
       <div className="mt-2">
+<<<<<<< HEAD
         <Link to={`/${post.user.username}`} className="home-post-text mt-2">
           {post.user.username}
+=======
+        <Link to={`/${post.user?.username}`} className="home-post-text mt-2">
+          {post.user?.username}
+>>>>>>> SM-5-post-details-page
         </Link>{" "}
         {post.content}
       </div>
@@ -395,10 +442,17 @@ const Post: React.FC<PostProps> = ({ post }) => {
           ) : null}
           <div className="home-post-comment">
             <Link
+<<<<<<< HEAD
               to={`/${lastComment.user.username}`}
               className="home-post-text mt-2"
             >
               {lastComment.user.username}
+=======
+              to={`/${lastComment.user?.username}`}
+              className="home-post-text mt-2"
+            >
+              {lastComment.user?.username}
+>>>>>>> SM-5-post-details-page
             </Link>{" "}
             {lastComment.content}
             <span
