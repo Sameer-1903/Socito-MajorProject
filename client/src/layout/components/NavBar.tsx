@@ -18,8 +18,8 @@ import {
   LikeIcon,
   NotificationActiveIcon,
 } from "../../components/Icons";
-import Instagram from "../../images/logo.png";
-import Logo from "../../images/Instagram-logo.png";
+import Socito from "../../images/logo.png";
+import Logo from "../../images/Socito-logo.png";
 import { logout } from "../../redux/features/authSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import {
@@ -97,9 +97,9 @@ const NavBar: React.FC = () => {
           onClick={handleCloseSearchAndNotif}
         >
           <img
-            src={handleSearchAndNotif() ? Logo : Instagram}
-            alt="instagram logo"
-            className="instagram-logo"
+            src={handleSearchAndNotif() ? Logo : Socito}
+            alt="Socito logo"
+            className="socito-logo"
             style={{
               width: handleSearchAndNotif() ? "2rem" : "",
               height: handleSearchAndNotif() ? "2rem" : "",
@@ -120,7 +120,7 @@ const NavBar: React.FC = () => {
               <div className="icon absolute-center">
                 <HomeIcon />
               </div>
-              <div className="icon-active top-instagram-logo">
+              <div className="icon-active top-socito-logo">
                 <HomeActiveIcon />
               </div>
               <div
@@ -144,7 +144,7 @@ const NavBar: React.FC = () => {
               <div className="icon absolute-center">
                 <SearchIcon />
               </div>
-              <div className="icon-active top-instagram-logo">
+              <div className="icon-active top-socito-logo">
                 <SearchActiveIcon />
               </div>
               <div
@@ -169,7 +169,7 @@ const NavBar: React.FC = () => {
               <div className="icon absolute-center">
                 <ExploreIcon />
               </div>
-              <div className="icon-active top-instagram-logo">
+              <div className="icon-active top-socito-logo">
                 <ExploreActiveIcon />
               </div>
               <div
@@ -201,7 +201,7 @@ const NavBar: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="icon-active top-instagram-logo">
+                  <div className="icon-active top-socito-logo">
                     <div className=" position-relative">
                       <MessagesActiveIcon />
                       <div className="navbar-new-messages absolute-center">
@@ -215,7 +215,7 @@ const NavBar: React.FC = () => {
                   <div className="icon  absolute-center">
                     <MessagesIcon />
                   </div>
-                  <div className="icon-active top-instagram-logo">
+                  <div className="icon-active top-socito-logo">
                     <MessagesActiveIcon />
                   </div>
                 </div>
@@ -244,7 +244,7 @@ const NavBar: React.FC = () => {
                   <RxDotFilled className="isread-notify" />
                 ) : null}
               </div>
-              <div className="icon-active position-relative top-instagram-logo absolute-center">
+              <div className="icon-active position-relative top-socito-logo absolute-center">
                 <NotificationActiveIcon />
                 {notification.data.some((notify) => notify.isRead === false) ? (
                   <RxDotFilled className="isread-notify" />
@@ -272,7 +272,7 @@ const NavBar: React.FC = () => {
               <div className="icon absolute-center">
                 <CreateIcon />
               </div>
-              <div className="icon-active top-instagram-logo">
+              <div className="icon-active top-socito-logo">
                 <CreateActiveIcon />
               </div>
               <div
@@ -297,7 +297,7 @@ const NavBar: React.FC = () => {
               <div className="user-image-wrapper absolute-center icon">
                 <img src={auth.user?.avatar} alt={auth.user?.username} />
               </div>
-              <div className="images-active top-instagram-logo">
+              <div className="images-active top-socito-logo">
                 <img src={auth.user?.avatar} alt={auth.user?.username} />
               </div>
               <div
@@ -324,7 +324,7 @@ const NavBar: React.FC = () => {
               <div className="absolute-center icon">
                 <SettingsIcon />
               </div>
-              <div className="icon-active top-instagram-logo">
+              <div className="icon-active top-socito-logo">
                 <SettingsActiveIcon />
               </div>
               <div
