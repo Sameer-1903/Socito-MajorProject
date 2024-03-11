@@ -61,11 +61,7 @@ const Profile: React.FC = () => {
     }
   };
   return (
-<<<<<<< HEAD
-    <Helmet title={`(@${username}) • Instagram photos and videos`}>
-=======
     <Helmet title={`(@${username}) • Socito photos and videos`}>
->>>>>>> SM-5-post-details-page
       {
         <div className="profile-page-container">
           <InfoProfile username={username} />
