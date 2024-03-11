@@ -21,11 +21,7 @@ const FollowingModal: React.FC = () => {
         <div className="edit_profile absolute-center">
           <div className="follower-modal-wrapper">
             <div className="follower-modal-header absolute-center">
-<<<<<<< HEAD
-              <span className="follower-modal-title">Follower</span>
-=======
               <span className="follower-modal-title">Following</span>
->>>>>>> SM-5-post-details-page
               <button
                 className="follower-modal-icon"
                 onClick={() => dispatch(setIsFollowingGlobalState())}
