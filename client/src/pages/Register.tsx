@@ -9,8 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import Helmet from "../components/Helmet";
 import logo from "../images/logo.png";
-import appStore from "../images/app-store.png";
-import googlePlay from "../images/google-play.png";
 
 import "../styles/Register.css"
 
