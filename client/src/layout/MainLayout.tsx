@@ -8,7 +8,7 @@ import EditPost from "../components/EditPost";
 import PostModal from "../components/PostModal";
 
 import SearchBox from "../components/SearchBox";
-import Instagram from "../images/logo.png";
+
 
 import NavBar from "./components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,6 @@ import SocketClient from "../SocketClient";
 import NotificationBox from "../components/NotificationBox";
 import CreateConversation from "../components/CreateConversation";
 import DeleteConversation from "../components/DeleteConversation";
-import Call from "../components/Call";
 import { setPeer } from "../redux/features/peerSlice";
 import FollowerModal from "../components/FollowerModal";
 import FollowingModal from "../components/FollowingModal";
@@ -64,7 +63,6 @@ const MainLayout: React.FC = () => {
       <EditPost />
       <CreateConversation />
       <DeleteConversation />
-      <Call />
       <FollowerModal />
       <FollowingModal />
     </div>
