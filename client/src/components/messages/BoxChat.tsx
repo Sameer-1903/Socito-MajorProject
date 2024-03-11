@@ -31,11 +31,7 @@ import {
 
 import { getTimesMessagesString } from "../../utils/Times";
 import { setCallGlobalState } from "../../redux/features/GlobalStateSlice";
-<<<<<<< HEAD
-import { createCall } from "../../redux/features/callSlice";
-=======
 // import { createCall } from "../../redux/features/callSlice";
->>>>>>> SM-5-post-details-page
 import { BoxChatProps, IMessage } from "../../utils/interface";
 
 let schema = yup.object().shape({
@@ -168,72 +164,6 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
     });
   };
   // Call
-<<<<<<< HEAD
-  const caller = async (video: boolean, audio: boolean) => {
-    await dispatch(
-      createMessage({
-        conversation: id,
-        sender: auth.user!._id,
-        recipient: newArr[0]!.recipients._id,
-        text: "",
-        media: "",
-        call: {
-          start: new Date().toISOString(),
-          end: "",
-          video: video,
-          audio: audio,
-        },
-      })
-    ).then((response) => {
-      socket.data!.emit("createMessage", response.payload);
-    });
-    dispatch(
-      createCall({
-        sender: {
-          _id: auth.user!._id,
-          avatar: auth.user!.avatar,
-          username: auth.user!.username,
-          fullname: auth.user!.fullname,
-        },
-        recipient: newArr[0]!.recipients,
-        conversation: id,
-        video: video,
-        audio: audio,
-      })
-    );
-    dispatch(setCallGlobalState());
-  };
-
-  const callUser = (video: boolean, audio: boolean) => {
-    const msg = {
-      sender: {
-        _id: auth.user!._id,
-        avatar: auth.user!.avatar,
-        username: auth.user!.username,
-        fullname: auth.user!.fullname,
-      },
-      recipient: newArr[0]!.recipients,
-      video: video,
-      audio: audio,
-      conversation: id,
-
-      peerId: "",
-    };
-
-    if (peer.data!.open) msg.peerId = peer.data!.id;
-
-    socket.data!.emit("callUser", msg);
-  };
-
-  const handleAudioCall = () => {
-    caller(false, true);
-    callUser(false, true);
-  };
-  const handleVideoCall = () => {
-    caller(true, true);
-    callUser(true, true);
-  };
-=======
   // const caller = async (video: boolean, audio: boolean) => {
   //   await dispatch(
   //     createMessage({
@@ -298,7 +228,6 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
   //   caller(true, true);
   //   callUser(true, true);
   // };
->>>>>>> SM-5-post-details-page
 
   return (
     <>
@@ -312,21 +241,13 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                     src={newArr[0]!.recipients.avatar}
                     alt={newArr[0]!.recipients.avatar}
                   />
-<<<<<<< HEAD
-                  {online.data!.map((obj) =>
-=======
                   {/* {online.data!.map((obj) =>
->>>>>>> SM-5-post-details-page
                     obj === newArr[0]!.recipients._id ? (
                       <div className="boxchat-online" key={obj}>
                         <RxDotFilled />
                       </div>
                     ) : null
-<<<<<<< HEAD
-                  )}
-=======
                   )} */}
->>>>>>> SM-5-post-details-page
                 </div>
 
                 <div>
@@ -341,22 +262,14 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                         className="leftside-boxchat-online"
                         key={newArr[0]!.recipients._id}
                       >
-<<<<<<< HEAD
-                        Active now
-=======
                         {/* Active now */}
->>>>>>> SM-5-post-details-page
                       </div>
                     ) : (
                       <div
                         className="leftside-boxchat-online"
                         key={newArr[0]!.recipients._id}
                       >
-<<<<<<< HEAD
-                        Offline
-=======
                         {/* Offline */}
->>>>>>> SM-5-post-details-page
                       </div>
                     )
                   ) : (
@@ -364,30 +277,18 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                       className="leftside-boxchat-online"
                       key={newArr[0]!.recipients._id}
                     >
-<<<<<<< HEAD
-                      Offline
-=======
                       {/* Offline */}
->>>>>>> SM-5-post-details-page
                     </div>
                   )}
                 </div>
               </div>
               <div className="boxchat-header-icon">
-<<<<<<< HEAD
-                <div className="boxchat-icon" onClick={handleAudioCall}>
-=======
                 {/* <div className="boxchat-icon" onClick={handleAudioCall}>
->>>>>>> SM-5-post-details-page
                   <CallIcon />
                 </div>
                 <div className="boxchat-icon" onClick={handleVideoCall}>
                   <VideoCallIcon />
-<<<<<<< HEAD
-                </div>
-=======
                 </div> */}
->>>>>>> SM-5-post-details-page
                 <div
                   className="boxchat-icon"
                   data-bs-toggle="dropdown"
@@ -463,15 +364,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                         msg.call.start === "" ? (
                           <div
                             className="boxchat-my-message-call"
-<<<<<<< HEAD
-                            onClick={handleVideoCall}
-                          >
-                            <VideoCallActiveIcon />
-=======
                             // onClick={handleVideoCall}
                           >
                             {/* <VideoCallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                             <div className="boxchat-user-message-call-text">
                               Video call ended
                             </div>
@@ -479,15 +374,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                         ) : (
                           <div
                             className="boxchat-my-message-call"
-<<<<<<< HEAD
-                            onClick={handleVideoCall}
-                          >
-                            <VideoCallActiveIcon />
-=======
                             // onClick={handleVideoCall}
                           >
                             {/* <VideoCallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                             <div className="boxchat-user-message-call-text">
                               Video call started
                             </div>
@@ -496,15 +385,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                       ) : msg.call.start === "" ? (
                         <div
                           className="boxchat-my-message-call"
-<<<<<<< HEAD
-                          onClick={handleAudioCall}
-                        >
-                          <CallActiveIcon />
-=======
                           // onClick={handleAudioCall}
                         >
                           {/* <CallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                           <div className="boxchat-user-message-call-text">
                             Audio call ended
                           </div>
@@ -512,15 +395,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                       ) : (
                         <div
                           className="boxchat-my-message-call"
-<<<<<<< HEAD
-                          onClick={handleAudioCall}
-                        >
-                          <CallActiveIcon />
-=======
                           // onClick={handleAudioCall}
                         >
                           {/* <CallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                           <div className="boxchat-user-message-call-text">
                             Audio call started
                           </div>
@@ -557,33 +434,19 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                           msg.call.start === "" ? (
                             <div
                               className="boxchat-user-message-call"
-<<<<<<< HEAD
-                              onClick={handleVideoCall}
-                            >
-                              <VideoCallActiveIcon />
-                              <div className="boxchat-user-message-call-text">
-                                Video call ended
-=======
                               // onClick={handleVideoCall}
                             >
                               {/* <VideoCallActiveIcon /> */}
                               <div className="boxchat-user-message-call-text">
                                 {/* Video call ended */}
->>>>>>> SM-5-post-details-page
                               </div>
                             </div>
                           ) : (
                             <div
                               className="boxchat-user-message-call"
-<<<<<<< HEAD
-                              onClick={handleVideoCall}
-                            >
-                              <VideoCallActiveIcon />
-=======
                               // onClick={handleVideoCall}
                             >
                               {/* <VideoCallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                               <div className="boxchat-user-message-call-text">
                                 Video call started
                               </div>
@@ -592,15 +455,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                         ) : msg.call.start === "" ? (
                           <div
                             className="boxchat-user-message-call"
-<<<<<<< HEAD
-                            onClick={handleAudioCall}
-                          >
-                            <CallActiveIcon />
-=======
                             // onClick={handleAudioCall}
                           >
                             {/* <CallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
                             <div className="boxchat-user-message-call-text">
                               Audio call ended
                             </div>
@@ -608,15 +465,9 @@ const BoxChat: React.FC<BoxChatProps> = ({ id }) => {
                         ) : (
                           <div
                             className="boxchat-user-message-call"
-<<<<<<< HEAD
-                            onClick={handleAudioCall}
-                          >
-                            <CallActiveIcon />
-=======
                             // onClick={handleAudioCall}
                           >
                             {/* <CallActiveIcon /> */}
->>>>>>> SM-5-post-details-page
 
                             <div className="boxchat-user-message-call-text">
                               Audio call started
