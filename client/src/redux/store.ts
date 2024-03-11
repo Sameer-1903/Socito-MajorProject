@@ -9,7 +9,7 @@ import notificationReducer from "./features/notificationSlice";
 import conversationReducer from "./features/conversationSlice";
 import messagesReducer from "./features/messagesSlice";
 import OnlineReducer from "./features/onlineSlice";
-// import CallReducer from "./features/callSlice";
+
 
 import uploadImgReducer from "./features/uploadImgSlice";
 
@@ -29,6 +29,8 @@ export const store = configureStore({
     conversation: conversationReducer,
     messages: messagesReducer,
     online: OnlineReducer,
+    
+
     socket: SocketSlice,
     peer: PeerSlice,
     globalState: GlobalStateSlice,
