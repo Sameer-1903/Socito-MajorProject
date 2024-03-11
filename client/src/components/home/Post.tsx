@@ -52,14 +52,11 @@ const Post: React.FC<PostProps> = ({ post }) => {
   const [like, setLike] = useState<boolean>(false);
   const [likeCmt, setLikeCmt] = useState<boolean>(false);
   const [savedPost, setSavedPost] = useState<boolean>(false);
-
   const [postId, setPostId] = useState<string>(post._id);
 
   const { auth } = useSelector((state: RootState) => state);
   const { socket } = useSelector((state: RootState) => state);
-
   const { user } = useSelector((state: RootState) => state);
-
   const { comment } = useSelector((state: RootState) => state);
 
   const dispatch: AppDispatch = useDispatch();
@@ -203,12 +200,12 @@ const Post: React.FC<PostProps> = ({ post }) => {
     const id = post.user._id;
     dispatch(follow(id)).then((response) => {
       socket.data!.emit("followUser", {
-        _id: response.payload._id,
-        username: response.payload.username,
-        fullname: response.payload.fullname,
-        avatar: response.payload.avatar,
-        followers: response.payload.followers,
-        following: response.payload.following,
+        _id: response.payload?._id,
+        username: response.payload?.username,
+        fullname: response.payload?.fullname,
+        avatar: response.payload?.avatar,
+        followers: response.payload?.followers,
+        following: response.payload?.following,
         to: id,
       });
     });
@@ -230,12 +227,12 @@ const Post: React.FC<PostProps> = ({ post }) => {
     const id = post.user._id;
     dispatch(unFollow(id)).then((response) => {
       socket.data!.emit("unFollowUser", {
-        _id: response.payload._id,
-        username: response.payload.username,
-        fullname: response.payload.fullname,
-        avatar: response.payload.avatar,
-        followers: response.payload.followers,
-        following: response.payload.following,
+        _id: response.payload?._id,
+        username: response.payload?.username,
+        fullname: response.payload?.fullname,
+        avatar: response.payload?.avatar,
+        followers: response.payload?.followers,
+        following: response.payload?.following,
         to: id,
       });
     });
@@ -246,12 +243,12 @@ const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <div className="mb-4" style={{ borderBottom: "1px solid #dbdbdb" }}>
       <div className="d-flex mb-3 position-relative">
-        <Link to={`/${post.user.username}`} className="d-flex">
+        <Link to={`/${post.user?.username}`} className="d-flex">
           <div className="user-image-wrapper absolute-center home-post-avatar">
-            <img src={post.user.avatar} alt={post.user.username} />
+            <img src={post.user?.avatar} alt={post.user?.username} />
           </div>
           <span className="home-post-text post-modal-username absolute-center ms-3">
-            {post.user.username}
+            {post.user?.username}
           </span>
         </Link>
         <div className="d-flex absolute-center">
@@ -273,7 +270,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
           </span>
 
           <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">
-            {post.user.username === auth.user!.username ? (
+            {post.user?.username === auth.user!.username ? (
               <>
                 <li>
                   <div
@@ -299,7 +296,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
             ) : (
               <>
                 {auth.user!.following.find(
-                  (obj) => obj._id === post.user._id
+                  (obj) => obj._id === post.user?._id
                 ) ? (
                   <li>
                     <div
@@ -378,8 +375,8 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className="mt-3 home-post-text">{post.likes.length} likes</div>
 
       <div className="mt-2">
-        <Link to={`/${post.user.username}`} className="home-post-text mt-2">
-          {post.user.username}
+        <Link to={`/${post.user?.username}`} className="home-post-text mt-2">
+          {post.user?.username}
         </Link>{" "}
         {post.content}
       </div>
@@ -395,10 +392,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
           ) : null}
           <div className="home-post-comment">
             <Link
-              to={`/${lastComment.user.username}`}
+              to={`/${lastComment.user?.username}`}
               className="home-post-text mt-2"
             >
-              {lastComment.user.username}
+              {lastComment.user?.username}
             </Link>{" "}
             {lastComment.content}
             <span

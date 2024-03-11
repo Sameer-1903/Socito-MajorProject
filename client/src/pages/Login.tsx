@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiFillFacebook } from "react-icons/ai";
+
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -11,7 +11,7 @@ import logo from "../images/logo.png";
 import appStore from "../images/app-store.png";
 import googlePlay from "../images/google-play.png";
 import Helmet from "../components/Helmet";
-import FaceBookLogin from "../components/FaceBookLogin";
+
 import { TbLoaderQuarter } from "react-icons/tb";
 
 let schema = yup.object().shape({
@@ -117,13 +117,8 @@ const Login: React.FC = () => {
                 <span>Log in</span>
               </button>
 
-              <span className="has-separator">Or</span>
-              <div className="facebook-login absolute-center">
-                {/* <span>
-                  <AiFillFacebook />
-                </span>{" "} */}
-                <FaceBookLogin title="Log in with Facebook" />
-              </div>
+              
+              
 
               <div
                 className="text-danger text-center my-4"
@@ -133,9 +128,9 @@ const Login: React.FC = () => {
                   ? "Sorry, your password was incorrect. Please double-check your password."
                   : ""}
               </div>
-              <Link className="password-reset" to="/forgot-password">
+              {/* <Link className="password-reset" to="/forgot-password">
                 Forgot password?
-              </Link>
+              </Link> */}
             </form>
             <div className="sign-up">
               Don't have an account?{" "}

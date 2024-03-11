@@ -13,9 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
-const RegisterFaceBook = lazy(() => import("./pages/RegisterFaceBook"));
-const ForgotPassWord = lazy(() => import("./pages/ForgotPassWord"));
-const EmailSent = lazy(() => import("./pages/EmailSent"));
+
 
 const Home = lazy(() => import("./pages/Home"));
 const Explore = lazy(() => import("./pages/Explore"));
@@ -24,7 +22,7 @@ const MessagesDirect = lazy(() => import("./pages/MessagesDirect"));
 const Messages = lazy(() => import("./pages/Messages"));
 
 const Post = lazy(() => import("./pages/Post"));
-const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -47,17 +45,6 @@ function App() {
             <Route path="/" element={<AuthLayout />}>
               <Route path="/signup" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/forgot-password" element={<ForgotPassWord />} />
-              <Route path="/email-sent" element={<EmailSent />} />
-              <Route
-                path="/reset-password/:token"
-                element={<ResetPassword />}
-              />
-
-              <Route
-                path="/signup/:faceBookId"
-                element={<RegisterFaceBook />}
-              />
             </Route>
             <Route path="/" element={<MainLayout />}>
               <Route
