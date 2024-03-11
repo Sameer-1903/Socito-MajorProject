@@ -1,10 +1,6 @@
 import React, { useState, useEffect, createRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import { AiFillFacebook } from "react-icons/ai";
-=======
 
->>>>>>> SM-5-post-details-page
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -12,15 +8,10 @@ import { login } from "../redux/features/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import logo from "../images/logo.png";
-import appStore from "../images/app-store.png";
-import googlePlay from "../images/google-play.png";
-import Helmet from "../components/Helmet";
-<<<<<<< HEAD
-import FaceBookLogin from "../components/FaceBookLogin";
-=======
 
->>>>>>> SM-5-post-details-page
-import { TbLoaderQuarter } from "react-icons/tb";
+import Helmet from "../components/Helmet";
+
+
 
 let schema = yup.object().shape({
   email: yup
@@ -136,15 +127,9 @@ const Login: React.FC = () => {
                   ? "Sorry, your password was incorrect. Please double-check your password."
                   : ""}
               </div>
-<<<<<<< HEAD
-              <Link className="password-reset" to="/forgot-password">
-                Forgot password?
-              </Link>
-=======
               {/* <Link className="password-reset" to="/forgot-password">
                 Forgot password?
               </Link> */}
->>>>>>> SM-5-post-details-page
             </form>
             <div className="sign-up">
               Don't have an account?{" "}
