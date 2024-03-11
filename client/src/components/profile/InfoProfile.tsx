@@ -22,8 +22,6 @@ const InfoProfile: React.FC<IInfoProfile> = ({ username }) => {
   const { user } = useSelector((state: RootState) => state);
   const { message } = user;
 
-<<<<<<< HEAD
-=======
   // useEffect(() => {
   //   setIsLoading(true);
   //   if (
@@ -34,7 +32,6 @@ const InfoProfile: React.FC<IInfoProfile> = ({ username }) => {
   //   }
   // }, [auth.user, message, username]);
 
->>>>>>> SM-5-post-details-page
   const dispatch: AppDispatch = useDispatch();
 
   const verifierUsername = username === auth.user!.username ? true : false;
