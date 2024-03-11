@@ -1,8 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-=======
->>>>>>> SM-5-post-details-page
 import loading from "../images/loading.png";
 
 const Loading: React.FC = () => {
