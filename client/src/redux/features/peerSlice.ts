@@ -1,21 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { PeerState } from "../../utils/interface";
 
-import { SocketState } from "../../utils/interface";
-
-const initialState: SocketState = {
+const initialState: PeerState = {
   data: null,
 };
 
 const socketSlice = createSlice({
-  name: "socket",
+  name: "peer",
   initialState: initialState,
   reducers: {
-    setSocket: (state, action) => {
+    setPeer: (state, action) => {
       state.data = action.payload;
     },
   },
 });
 
-export const { setSocket } = socketSlice.actions;
+export const { setPeer } = socketSlice.actions;
 
 export default socketSlice.reducer;
